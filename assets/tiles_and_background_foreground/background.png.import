@@ -1,0 +1,14 @@
+[remap]
+
+importer="image"
+type="Image"
+uid="uid://bdipeuil4t11n"
+path="res://.godot/imported/background.png-3cf3a7197fd9b5fbdef3e9483d4343aa.image"
+
+[deps]
+
+source_file="res://assets/tiles_and_background_foreground/background.png"
+dest_files=["res://.godot/imported/background.png-3cf3a7197fd9b5fbdef3e9483d4343aa.image"]
+
+[params]
+
