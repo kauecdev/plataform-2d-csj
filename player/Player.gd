@@ -3,6 +3,7 @@ extends CharacterBody2D
 @onready var player_sprite = $AnimatedSprite2D
 @onready var animation_tree = $AnimationTree
 @onready var state_machine = $AnimationTree.get("parameters/playback")
+@onready var attack_hit_area = $AttackHitArea
 
 @export var HEALTH = 100
 @export var SPEED = 300.0
@@ -24,15 +25,16 @@ func _ready():
 
 func _physics_process(delta):
 	if not is_dead:
-		jump(delta)
-		move()
-		attack()
+		on_jump(delta)
+		on_move()
+		on_attack()
 
 
-func move():
+func on_move():
 	var direction = Input.get_axis("Left", "Right")
 	if direction:
 		player_sprite.flip_h = false if direction > 0 else true
+		attack_hit_area.scale.x = 1 if direction > 0 else -1
 		velocity.x = direction * SPEED
 		if is_on_floor() and not is_attacking and not is_getting_hit:
 			state_machine.travel("run")
@@ -44,7 +46,7 @@ func move():
 	move_and_slide()
 
 
-func jump(delta):
+func on_jump(delta):
 	if not is_on_floor():
 		velocity.y += gravity * delta
 		if not is_double_jumping and not is_attacking and not is_getting_hit:
@@ -66,7 +68,7 @@ func jump(delta):
 			is_double_jumping = false
 
 
-func attack():
+func on_attack():
 	if Input.is_action_just_pressed("Attack") and can_attack:
 		can_attack = false
 		is_attacking = true

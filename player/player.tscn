@@ -151,7 +151,7 @@ animations = [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_j0h7r")
 }],
-"loop": true,
+"loop": false,
 "name": &"attack",
 "speed": 5.0
 }, {
@@ -180,7 +180,7 @@ animations = [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_16x2i")
 }],
-"loop": true,
+"loop": false,
 "name": &"death",
 "speed": 5.0
 }, {
@@ -208,7 +208,7 @@ animations = [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_wdnex")
 }],
-"loop": true,
+"loop": false,
 "name": &"get_hit",
 "speed": 5.0
 }, {
@@ -502,6 +502,48 @@ tracks/1/keys = {
 "values": [0, 1, 2]
 }
 
+[sub_resource type="Animation" id="Animation_v77m5"]
+resource_name = "get_hit"
+length = 0.3
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("AnimatedSprite2D:animation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [&"get_hit"]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("AnimatedSprite2D:frame")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.2),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 1,
+"values": [0, 1, 2]
+}
+tracks/2/type = "method"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath(".")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0.2),
+"transitions": PackedFloat32Array(1),
+"values": [{
+"args": [],
+"method": &"on_get_hit_finished"
+}]
+}
+
 [sub_resource type="Animation" id="Animation_85rmy"]
 resource_name = "idle"
 length = 0.4
@@ -589,48 +631,6 @@ tracks/1/keys = {
 "values": [0, 1, 2, 3, 4, 5]
 }
 
-[sub_resource type="Animation" id="Animation_v77m5"]
-resource_name = "get_hit"
-length = 0.3
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("AnimatedSprite2D:animation")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [&"get_hit"]
-}
-tracks/1/type = "value"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath("AnimatedSprite2D:frame")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/keys = {
-"times": PackedFloat32Array(0, 0.1, 0.2),
-"transitions": PackedFloat32Array(1, 1, 1),
-"update": 1,
-"values": [0, 1, 2]
-}
-tracks/2/type = "method"
-tracks/2/imported = false
-tracks/2/enabled = true
-tracks/2/path = NodePath(".")
-tracks/2/interp = 1
-tracks/2/loop_wrap = true
-tracks/2/keys = {
-"times": PackedFloat32Array(0.2),
-"transitions": PackedFloat32Array(1),
-"values": [{
-"args": [],
-"method": &"on_get_hit_finished"
-}]
-}
-
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_frt8m"]
 _data = {
 "RESET": SubResource("Animation_b8wbf"),
@@ -652,7 +652,6 @@ collision_mask = 132
 script = ExtResource("1_snq3q")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(-1, 1)
 scale = Vector2(1.24, 1.34097)
 shape = SubResource("RectangleShape2D_pnuuu")
 
@@ -666,7 +665,6 @@ animation = &"idle"
 [node name="AnimationTree" type="AnimationTree" parent="."]
 tree_root = SubResource("AnimationNodeStateMachine_y61t7")
 anim_player = NodePath("../AnimationPlayer")
-active = true
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 libraries = {
@@ -674,6 +672,7 @@ libraries = {
 }
 
 [node name="AttackHitArea" type="Area2D" parent="."]
+position = Vector2(1, 0)
 collision_layer = 8
 collision_mask = 2
 

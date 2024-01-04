@@ -4,7 +4,7 @@ extends CharacterBody2D
 @onready var animation_tree = $AnimationTree
 @onready var state_machine = $AnimationTree.get("parameters/playback")
 
-@export var HEALTH = 30
+@export var HEALTH = 20
 @export var SPEED = 70
 @export var DAMAGE = 10
 
