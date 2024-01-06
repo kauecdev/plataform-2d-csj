@@ -9,6 +9,7 @@ extends CharacterBody2D
 @export var SPEED = 300.0
 @export var JUMP_VELOCITY = -400.0
 @export var DAMAGE = 10
+@export var PUSH_FORCE = 30
 
 # Get the gravity from the project settings to be synced with RigidBody nodes.
 var gravity = ProjectSettings.get_setting("physics/2d/default_gravity")
@@ -26,11 +27,11 @@ func _ready():
 func _physics_process(delta):
 	if not is_dead:
 		on_jump(delta)
-		on_move()
+		on_move(delta)
 		on_attack()
 
 
-func on_move():
+func on_move(delta):
 	var direction = Input.get_axis("Left", "Right")
 	if direction:
 		player_sprite.flip_h = false if direction > 0 else true
@@ -44,6 +45,11 @@ func on_move():
 			state_machine.travel("idle")
 			
 	move_and_slide()
+	
+	for i in get_slide_collision_count():
+		var collision = get_slide_collision(i)
+		if collision.get_collider().get_name() == "Stone":
+			collision.get_collider().apply_central_impulse(-collision.get_normal() * PUSH_FORCE)
 
 
 func on_jump(delta):

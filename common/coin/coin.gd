@@ -17,7 +17,6 @@ func _process(delta):
 
 
 func _on_area_2d_body_entered(body):
-	print('collided')
 	is_being_pickup = true
 	pickup_collision.set_deferred("disabled", true)
 	state_machine.travel("pickup")

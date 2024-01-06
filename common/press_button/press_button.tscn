@@ -1,0 +1,33 @@
+[gd_scene load_steps=4 format=3 uid="uid://dmrv8pojid6ak"]
+
+[ext_resource type="Script" path="res://common/press_button/press_button.gd" id="1_8gqhh"]
+[ext_resource type="Texture2D" uid="uid://d0p42i4up7vqr" path="res://assets/miscellaneous_sprites/buttom.png" id="1_kue1p"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_o0lnt"]
+size = Vector2(36, 11)
+
+[node name="RigidBody2D" type="RigidBody2D"]
+collision_layer = 16
+collision_mask = 65
+gravity_scale = 0.0
+freeze = true
+script = ExtResource("1_8gqhh")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture_filter = 1
+scale = Vector2(3, 3)
+texture = ExtResource("1_kue1p")
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="."]
+polygon = PackedVector2Array(-37, 8, -18, 1, 18, 1, 39, 8)
+
+[node name="PressArea" type="Area2D" parent="."]
+collision_layer = 16
+collision_mask = 65
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="PressArea"]
+position = Vector2(0, -4.5)
+shape = SubResource("RectangleShape2D_o0lnt")
+
+[connection signal="body_entered" from="PressArea" to="." method="_on_press_area_body_entered"]
+[connection signal="body_exited" from="PressArea" to="." method="_on_press_area_body_exited"]

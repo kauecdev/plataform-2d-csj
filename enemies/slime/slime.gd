@@ -29,6 +29,7 @@ func _physics_process(delta):
 
 
 func _on_hit_area_body_entered(body):
+	print(body.get_name())
 	body.on_get_hit(DAMAGE)
 
 

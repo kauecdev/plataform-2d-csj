@@ -52,7 +52,7 @@ func on_move():
 
 
 func on_attack():
-	if can_attack and not is_getting_hit:
+	if can_attack and not is_getting_hit and not is_dead:
 		state_machine.travel("attack")
 		
 func on_attack_animation_finished():

@@ -53,5 +53,6 @@ Attack={
 2d_physics/layer_2="Enemy"
 2d_physics/layer_3="EnemyHit"
 2d_physics/layer_4="PlayerHit"
-2d_physics/layer_7="Coin"
+2d_physics/layer_5="PressButton"
+2d_physics/layer_7="Props"
 2d_physics/layer_8="Ground"
