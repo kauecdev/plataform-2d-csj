@@ -1,7 +1,8 @@
-[gd_scene load_steps=4 format=3 uid="uid://dmrv8pojid6ak"]
+[gd_scene load_steps=5 format=3 uid="uid://dmrv8pojid6ak"]
 
 [ext_resource type="Script" path="res://common/press_button/press_button.gd" id="1_8gqhh"]
 [ext_resource type="Texture2D" uid="uid://d0p42i4up7vqr" path="res://assets/miscellaneous_sprites/buttom.png" id="1_kue1p"]
+[ext_resource type="Texture2D" uid="uid://dyoplki51d3ap" path="res://assets/miscellaneous_sprites/buttom_pressed.png" id="3_xdtts"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_o0lnt"]
 size = Vector2(36, 11)
@@ -13,10 +14,16 @@ gravity_scale = 0.0
 freeze = true
 script = ExtResource("1_8gqhh")
 
-[node name="Sprite2D" type="Sprite2D" parent="."]
+[node name="ButtonNotPressedSprite" type="Sprite2D" parent="."]
 texture_filter = 1
 scale = Vector2(3, 3)
 texture = ExtResource("1_kue1p")
+
+[node name="ButtonPressedSprite" type="Sprite2D" parent="."]
+visible = false
+texture_filter = 1
+scale = Vector2(3, 3)
+texture = ExtResource("3_xdtts")
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="."]
 polygon = PackedVector2Array(-37, 8, -18, 1, 18, 1, 39, 8)
