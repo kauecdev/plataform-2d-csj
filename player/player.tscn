@@ -325,15 +325,15 @@ states/attack/position = Vector2(623, 275.044)
 states/death/node = SubResource("AnimationNodeAnimation_20h4t")
 states/death/position = Vector2(562, 389)
 states/double_jump/node = SubResource("AnimationNodeAnimation_pq2dm")
-states/double_jump/position = Vector2(346, 378.044)
+states/double_jump/position = Vector2(326, 398.044)
 states/get_hit/node = SubResource("AnimationNodeAnimation_58gkn")
 states/get_hit/position = Vector2(596.947, 119.554)
 states/idle/node = SubResource("AnimationNodeAnimation_sx4ha")
-states/idle/position = Vector2(407, 166.567)
+states/idle/position = Vector2(401, 200.567)
 states/jump/node = SubResource("AnimationNodeAnimation_mjnkx")
-states/jump/position = Vector2(346, 297)
+states/jump/position = Vector2(326, 303)
 states/run/node = SubResource("AnimationNodeAnimation_x8y3w")
-states/run/position = Vector2(233, 237.044)
+states/run/position = Vector2(203, 185.044)
 transitions = ["jump", "double_jump", SubResource("AnimationNodeStateMachineTransition_06c45"), "double_jump", "jump", SubResource("AnimationNodeStateMachineTransition_3s652"), "Start", "idle", SubResource("AnimationNodeStateMachineTransition_214at"), "idle", "get_hit", SubResource("AnimationNodeStateMachineTransition_8qyx1"), "get_hit", "idle", SubResource("AnimationNodeStateMachineTransition_sf8mg"), "idle", "attack", SubResource("AnimationNodeStateMachineTransition_wurjd"), "attack", "idle", SubResource("AnimationNodeStateMachineTransition_jwgwm"), "idle", "death", SubResource("AnimationNodeStateMachineTransition_5bkjd"), "death", "idle", SubResource("AnimationNodeStateMachineTransition_sfpys"), "run", "idle", SubResource("AnimationNodeStateMachineTransition_2kuhb"), "idle", "run", SubResource("AnimationNodeStateMachineTransition_a538y"), "jump", "idle", SubResource("AnimationNodeStateMachineTransition_hy7g7"), "idle", "jump", SubResource("AnimationNodeStateMachineTransition_wustg")]
 graph_offset = Vector2(-133.435, 5.56732)
 
@@ -646,11 +646,10 @@ _data = {
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_0mud7"]
 size = Vector2(45, 22)
 
-[node name="CharacterBody2D" type="CharacterBody2D"]
-position = Vector2(0, 268)
-collision_mask = 212
+[node name="Player" type="CharacterBody2D"]
+collision_mask = 244
 script = ExtResource("1_snq3q")
-PUSH_FORCE = 50
+PUSH_FORCE = 20
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 scale = Vector2(1.24, 1.34097)

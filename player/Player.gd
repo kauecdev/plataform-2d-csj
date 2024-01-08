@@ -1,15 +1,15 @@
 extends CharacterBody2D
 
+@onready var player_state = PlayerState
 @onready var player_sprite = $AnimatedSprite2D
 @onready var animation_tree = $AnimationTree
 @onready var state_machine = $AnimationTree.get("parameters/playback")
 @onready var attack_hit_area = $AttackHitArea
 
-@export var HEALTH = 100
 @export var SPEED = 300.0
 @export var JUMP_VELOCITY = -400.0
 @export var DAMAGE = 10
-@export var PUSH_FORCE = 30
+@export var PUSH_FORCE = 10
 
 # Get the gravity from the project settings to be synced with RigidBody nodes.
 var gravity = ProjectSettings.get_setting("physics/2d/default_gravity")
@@ -27,11 +27,11 @@ func _ready():
 func _physics_process(delta):
 	if not is_dead:
 		on_jump(delta)
-		on_move(delta)
+		on_move()
 		on_attack()
 
 
-func on_move(delta):
+func on_move():
 	var direction = Input.get_axis("Left", "Right")
 	if direction:
 		player_sprite.flip_h = false if direction > 0 else true
@@ -91,9 +91,9 @@ func on_attack_animation_finished():
 func on_get_hit(damage):
 	is_attacking = false
 	is_getting_hit = true
-	HEALTH -= damage
+	player_state.health -= damage
 	
-	if HEALTH <= 0:
+	if player_state.health <= 0:
 		state_machine.travel("death")
 		is_dead = true
 	else:

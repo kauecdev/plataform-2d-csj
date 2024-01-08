@@ -7,10 +7,12 @@
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_o0lnt"]
 size = Vector2(36, 11)
 
-[node name="RigidBody2D" type="RigidBody2D"]
+[node name="PressButton" type="RigidBody2D"]
 collision_layer = 16
 collision_mask = 65
 gravity_scale = 0.0
+max_contacts_reported = 1
+contact_monitor = true
 freeze = true
 script = ExtResource("1_8gqhh")
 
@@ -26,7 +28,7 @@ scale = Vector2(3, 3)
 texture = ExtResource("3_xdtts")
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="."]
-polygon = PackedVector2Array(-37, 8, -18, 1, 18, 1, 39, 8)
+polygon = PackedVector2Array(-33, 7, -15, 2, 13, 2, 29, 7)
 
 [node name="PressArea" type="Area2D" parent="."]
 collision_layer = 16

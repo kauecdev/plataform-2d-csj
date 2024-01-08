@@ -11,12 +11,12 @@ func _ready():
 	animation_tree.active = true
 
 
-func _process(delta):
+func _process(_delta):
 	if not is_being_pickup:
 		state_machine.travel("idle")
 
 
-func _on_area_2d_body_entered(body):
+func _on_area_2d_body_entered(_body):
 	is_being_pickup = true
 	pickup_collision.set_deferred("disabled", true)
 	state_machine.travel("pickup")

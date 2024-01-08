@@ -11,13 +11,15 @@ config_version=5
 [application]
 
 config/name="platform_csj"
-run/main_scene="res://levels/level_01.tscn"
+run/main_scene="res://levels/level_1.tscn"
 config/features=PackedStringArray("4.1", "Forward Plus")
 config/icon="res://icon.svg"
 
 [autoload]
 
-GameController="*res://common/game_controller.gd"
+GameController="*res://singletons/game_controller.gd"
+PlayerState="*res://singletons/player_state.gd"
+SaveAndLoad="*res://singletons/save_and_load.gd"
 
 [input]
 
@@ -54,5 +56,6 @@ Attack={
 2d_physics/layer_3="EnemyHit"
 2d_physics/layer_4="PlayerHit"
 2d_physics/layer_5="PressButton"
-2d_physics/layer_7="Props"
+2d_physics/layer_6="Door"
+2d_physics/layer_7="Coin"
 2d_physics/layer_8="Ground"

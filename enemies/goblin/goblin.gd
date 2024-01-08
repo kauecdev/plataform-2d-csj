@@ -28,7 +28,7 @@ func _ready():
 	animation_tree.active = true
 
 
-func _physics_process(delta):
+func _physics_process(_delta):
 	if not is_dead:
 		get_player_when_enter_ray_cast()
 		on_move()

@@ -18,3 +18,20 @@ offset_right = 76.0
 offset_bottom = 31.0
 text = "x 0"
 vertical_alignment = 1
+
+[node name="SaveButton" type="Button" parent="."]
+offset_left = 128.0
+offset_right = 171.0
+offset_bottom = 31.0
+text = "save"
+
+[node name="LoadButton" type="Button" parent="."]
+offset_left = 185.0
+offset_top = 1.0
+offset_right = 227.0
+offset_bottom = 32.0
+text = "load
+"
+
+[connection signal="pressed" from="SaveButton" to="." method="_on_save_button_pressed"]
+[connection signal="pressed" from="LoadButton" to="." method="_on_load_button_pressed"]

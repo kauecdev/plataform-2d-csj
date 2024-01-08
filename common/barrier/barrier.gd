@@ -6,7 +6,7 @@ var is_opening = false
 var is_closing = false
 var is_closed = true
 
-func _process(delta):
+func _process(_delta):
 	if not is_opening and is_closed:
 		animation_player.play("closed")
 

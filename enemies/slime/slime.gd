@@ -16,7 +16,7 @@ func _ready():
 	animation_tree.active = true
 
 
-func _physics_process(delta):
+func _physics_process(_delta):
 	if not is_dead:
 		if not is_getting_hit:
 			state_machine.travel("walk")
