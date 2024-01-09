@@ -55,7 +55,7 @@ texture_filter = 1
 texture = ExtResource("2_7t6o3")
 
 [node name="Door" parent="." instance=ExtResource("3_26sc8")]
-position = Vector2(783, 588)
+position = Vector2(1047, 560)
 
 [node name="Slime" parent="." instance=ExtResource("5_lhudp")]
 position = Vector2(280, 591)
