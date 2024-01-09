@@ -1,3 +1,4 @@
+class_name Player
 extends CharacterBody2D
 
 @onready var game_controller = GameController
