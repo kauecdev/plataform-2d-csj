@@ -6,7 +6,7 @@ extends CharacterBody2D
 
 @export var HEALTH = 20
 @export var SPEED = 70
-@export var DAMAGE = 10
+@export var DAMAGE = 1
 
 var direction = 1
 var is_getting_hit = false
@@ -29,7 +29,6 @@ func _physics_process(_delta):
 
 
 func _on_hit_area_body_entered(body):
-	print(body.get_name())
 	body.on_get_hit(DAMAGE)
 
 

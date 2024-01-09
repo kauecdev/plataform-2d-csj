@@ -4,6 +4,7 @@ extends AnimatedSprite2D
 @onready var animation_tree = $AnimationTree
 @onready var state_machine = $AnimationTree.get("parameters/playback")
 @onready var pickup_collision = $PickupArea/CollisionShape2D
+@onready var audio_stream_player = $AudioStreamPlayer2D
 
 var is_being_pickup = false
 
@@ -17,6 +18,7 @@ func _process(_delta):
 
 
 func _on_area_2d_body_entered(_body):
+	audio_stream_player.play()
 	is_being_pickup = true
 	pickup_collision.set_deferred("disabled", true)
 	state_machine.travel("pickup")

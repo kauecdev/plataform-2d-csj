@@ -1,8 +1,10 @@
-[gd_scene load_steps=73 format=3 uid="uid://orglmragj308"]
+[gd_scene load_steps=75 format=3 uid="uid://orglmragj308"]
 
 [ext_resource type="Script" path="res://player/player.gd" id="1_snq3q"]
+[ext_resource type="AudioStream" uid="uid://bpdmd17kc3ukh" path="res://assets/sounds/Blowing.wav" id="2_cbpg6"]
 [ext_resource type="Texture2D" uid="uid://c5wja2i67c0i5" path="res://assets/herochar_sprites/herochar_sword_attack_anim_strip_4.png" id="2_coldx"]
 [ext_resource type="Texture2D" uid="uid://bbihb4o4vfr22" path="res://assets/herochar_sprites/herochar_death_anim_strip_8.png" id="2_ld6lm"]
+[ext_resource type="AudioStream" uid="uid://da43x8byvkiai" path="res://assets/sounds/Jump.wav" id="3_ee1p5"]
 [ext_resource type="Texture2D" uid="uid://b622kwmxscmdf" path="res://assets/herochar_sprites/herochar_jump_double_anim_strip_3.png" id="3_vb36m"]
 [ext_resource type="Texture2D" uid="uid://b1waf7yweayv7" path="res://assets/herochar_sprites/herochar_idle_anim_strip_4.png" id="4_dppou"]
 [ext_resource type="Texture2D" uid="uid://cfwbddhjus8d5" path="res://assets/herochar_sprites/herochar_jump_up_anim_strip_3.png" id="5_33pim"]
@@ -650,6 +652,8 @@ size = Vector2(45, 22)
 collision_mask = 244
 script = ExtResource("1_snq3q")
 PUSH_FORCE = 20
+blowing_sound = ExtResource("2_cbpg6")
+jump_sound = ExtResource("3_ee1p5")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 scale = Vector2(1.24, 1.34097)
@@ -680,5 +684,8 @@ collision_mask = 2
 position = Vector2(22.5, 7)
 shape = SubResource("RectangleShape2D_0mud7")
 disabled = true
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
+volume_db = -15.0
 
 [connection signal="body_entered" from="AttackHitArea" to="." method="_on_attack_hit_area_body_entered"]

@@ -1,0 +1,8 @@
+[gd_scene load_steps=2 format=3 uid="uid://ci8vp13f1rtao"]
+
+[ext_resource type="Texture2D" uid="uid://1wrc1na3us3p" path="res://assets/hud_elements/hearts_hud.png" id="1_rxvrx"]
+
+[node name="HearthUI" type="TextureRect"]
+texture = ExtResource("1_rxvrx")
+expand_mode = 3
+stretch_mode = 6

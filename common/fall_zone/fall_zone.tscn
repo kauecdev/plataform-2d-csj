@@ -3,7 +3,7 @@
 [ext_resource type="Script" path="res://common/fall_zone/fall_zone.gd" id="1_8ycri"]
 
 [sub_resource type="SegmentShape2D" id="SegmentShape2D_50acl"]
-a = Vector2(484, 7)
+a = Vector2(1200, 7)
 b = Vector2(-332, 7)
 
 [node name="FallZone" type="Area2D"]

@@ -8,7 +8,7 @@ extends CharacterBody2D
 @onready var attack_hit_area = $AttackHitArea
 
 @export var SPEED = 100.0
-@export var DAMAGE = 20
+@export var DAMAGE = 1
 @export var HEALTH = 30
 
 var motion = Vector2.ZERO
