@@ -61,7 +61,7 @@ position = Vector2(1047, 560)
 position = Vector2(280, 591)
 
 [node name="Goblin" parent="." instance=ExtResource("6_t6778")]
-position = Vector2(872, 73)
+position = Vector2(888, 214)
 scale = Vector2(2.3, 2.3)
 
 [node name="Coins" type="Node2D" parent="."]
@@ -167,7 +167,7 @@ scale = Vector2(2.34481, 2.34481)
 texture = ExtResource("14_cr303")
 
 [node name="Checkpoint" type="Node2D" parent="." groups=["checkpoint"]]
-position = Vector2(731, 204)
+position = Vector2(723, 586)
 
 [node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource("15_oud0i")
